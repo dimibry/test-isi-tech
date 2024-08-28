@@ -1,0 +1,76 @@
+{
+  "users": [
+    {
+      "username": "mperry19921",
+      "first_name": "Matthew",
+      "last_name": "Perry",
+      "email": "matthew@gmail.com",
+      "password": "Flamingo36",
+      "user_type": "Admin"
+    },
+    {
+      "username": "mperry19922",
+      "first_name": "Matthew",
+      "last_name": "Perry",
+      "email": "matthew@gmail.com",
+      "password": "Flamingo36",
+      "user_type": "Admin"
+    },
+    {
+      "username": "mperry19923",
+      "first_name": "Matthew",
+      "last_name": "Perry",
+      "email": "matthew@gmail.com",
+      "password": "Flamingo36",
+      "user_type": "Driver"
+    },
+    {
+      "username": "mperry19924",
+      "first_name": "Matthew",
+      "last_name": "Perry",
+      "email": "matthew@gmail.com",
+      "password": "Flamingo36",
+      "user_type": "Driver"
+    },
+    {
+      "username": "mperry19925",
+      "first_name": "Matthew",
+      "last_name": "Perry",
+      "email": "matthew@gmail.com",
+      "password": "Flamingo36",
+      "user_type": "Admin"
+    },
+    {
+      "username": "mperry19926",
+      "first_name": "Matthew",
+      "last_name": "Perry",
+      "email": "matthew@gmail.com",
+      "password": "Flamingo36",
+      "user_type": "Admin"
+    },
+    {
+      "username": "mperry19927",
+      "first_name": "Matthew",
+      "last_name": "Perry",
+      "email": "matthew@gmail.com",
+      "password": "Flamingo36",
+      "user_type": "Admin"
+    },
+    {
+      "username": "mperry19928",
+      "first_name": "Matthew",
+      "last_name": "Perry",
+      "email": "matthew@gmail.com",
+      "password": "Flamingo36",
+      "user_type": "Admin"
+    },
+    {
+      "username": "mperry19929",
+      "first_name": "Matthew",
+      "last_name": "Perry",
+      "email": "matthew@gmail.com",
+      "password": "Flamingo36",
+      "user_type": "Admin"
+    }
+  ]
+}

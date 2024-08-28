@@ -1,0 +1,34 @@
+@import "vars";
+.user-view {
+  padding: 26px 26px;
+  border-radius: 6px;
+  background-color: $c-white;
+  box-shadow: $shadow-primary;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 26px;
+
+    &__title {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    &__close {
+      cursor: pointer;
+    }
+  }
+}
+
+.buttons-wrapper {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+
+  &--several {
+    justify-content: space-between;
+  }
+
+}

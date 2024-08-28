@@ -1,0 +1,62 @@
+
+<div class="content">
+    <div class="content__general">
+      <div class="button-wrapper">
+        <button class="btn btn--general" (click)="isUserViewOpened = true; activeUser = null; serverErrors = null;">Create user</button>
+      </div>
+      <div class="table-wrapper">
+        <table class="table">
+          <thead>
+          <tr>
+            <td>
+              Username
+            </td>
+            <td>
+              First name
+            </td>
+            <td>
+              Last name
+            </td>
+            <td>
+              Email
+            </td>
+            <td>
+              Type
+            </td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr (click)="activeUser = user; isUserViewOpened = true; serverErrors = null;" *ngFor="let user of users">
+            <td>
+              {{ user.username }}
+            </td>
+            <td>
+              {{ user.first_name }}
+            </td>
+            <td>
+              {{ user.last_name }}
+            </td>
+            <td>
+              {{ user.email }}
+            </td>
+            <td>
+              {{ user.user_type }}
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content__user-view">
+      <app-user-view
+        *ngIf="isUserViewOpened"
+        [serverErrors]="serverErrors"
+        [users]="users"
+        [activeUser]="activeUser"
+        (save)="saveUser($event)"
+        (delete)="deleteUser($event)"
+        (close)="isUserViewOpened = false"
+        (add)="addUser($event)">
+      </app-user-view>
+    </div>
+  </div>  

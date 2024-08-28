@@ -34,7 +34,15 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                ".",
+                "./src/styles",
+                "./src/styles/base",
+                "./src/styles/layouts",
+                "./src/styles/partials"
+              ]
+            }
           },
           "configurations": {
             "production": {
@@ -98,5 +106,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
