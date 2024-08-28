@@ -34,13 +34,12 @@ export class UserListComponent implements OnInit {
   addUser(user: User) {
     this.userService.addUser(user).subscribe({
       next: () => {
-        this.toastr.success('User added', 'Success');
-        this.resetValues();
+        this.successMessage('User added');
         this.users.push(user);
       },
       error: (err) => {
         this.serverErrors = err.errors;
-        this.toastr.error('User not added', 'Error', { positionClass: 'toast-top-left' });
+        this.errorMessage('User not added');
       }
     });
   }
@@ -48,8 +47,7 @@ export class UserListComponent implements OnInit {
   saveUser(user: User) {
     this.userService.updateUser(user).subscribe({
       next: () => {
-        this.toastr.success('User updated', 'Success');
-        this.resetValues();
+        this.successMessage('User updated');
         const findUser = this.users.find((u: User) => 
           (u.username === user.old_username || u.old_username === user.old_username))!;
         const index = this.users.indexOf(findUser);
@@ -57,7 +55,7 @@ export class UserListComponent implements OnInit {
       },
       error: (err) => {
         this.serverErrors = err.errors;
-        this.toastr.error('User not updated', 'Error', { positionClass: 'toast-top-left' });
+        this.errorMessage('User not updated');
       }
     });
   }
@@ -66,8 +64,7 @@ export class UserListComponent implements OnInit {
     this.userService.deleteUser(user).subscribe({
         next: (status) => {
           if (status) {
-            this.toastr.success('User deleted', 'Success');
-            this.resetValues();
+            this.successMessage('User deleted');
             const index = this.users.indexOf(user);
             if (index !== -1) {
               this.users.splice(index, 1);
@@ -76,9 +73,18 @@ export class UserListComponent implements OnInit {
         },
         error: (err) => {
           console.error(err.message);
-          this.toastr.error('User not deleted', 'Error', { positionClass: 'toast-top-left' });
+          this.errorMessage('User not deleted');
         }
     });
+  }
+
+  private successMessage(message: string) {
+    this.toastr.success(message, 'Success');
+    this.resetValues();
+  }
+
+  private errorMessage(message: string) {
+    this.toastr.error(message, 'Error', { positionClass: 'toast-top-left' });
   }
 
   private resetValues() {
