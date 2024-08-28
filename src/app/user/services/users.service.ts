@@ -16,6 +16,7 @@ export class UsersService {
   }
 
   addUser(user: User): Observable<User> {
+    // emulage post request
     return of(user).pipe(delay(500));
 
     // *** ATTENTION - if you want to emulate server side error ***
@@ -28,7 +29,7 @@ export class UsersService {
     })).pipe(delay(500));
   }
 
-  updateUser(user: User) {
+  updateUser(user: User): Observable<User> {
     // emulate put request
     return of(user).pipe(delay(500));
 

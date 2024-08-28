@@ -15,7 +15,7 @@
     <div class="user-view__body">
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="input-group" [class.input-group--error]="form.get('username')!.touched && form.get('username')!.hasError('required') ||
-  form.get('username')!.hasError('uniqueUsernameError') || serverErrors?.username">
+  form.get('username')!.hasError('uniqueUsernameError') || serverErrors && serverErrors['username']">
           <label for="username" class="input-group__label">
             Username<sup>*</sup>
           </label>
@@ -26,11 +26,11 @@
           <div class="input-group__error" *ngIf="form.get('username')!.hasError('uniqueUsernameError')">
             This username is already taken.
           </div>
-          <div class="input-group__error" *ngIf="serverErrors?.username">
-            {{ serverErrors.username }}
+          <div class="input-group__error" *ngIf="serverErrors && serverErrors['username']">
+            {{ serverErrors['username'] }}
           </div>
         </div>
-        <div class="input-group" [class.input-group--error]="form.get('first_name')!.touched && form.get('first_name')!.hasError('required') || serverErrors?.first_name">
+        <div class="input-group" [class.input-group--error]="form.get('first_name')!.touched && form.get('first_name')!.hasError('required') || serverErrors && serverErrors['first_name']">
           <label for="first_name" class="input-group__label">
             First name<sup>*</sup>
           </label>
@@ -38,11 +38,11 @@
           <div class="input-group__error" *ngIf="form.get('first_name')!.touched && form.get('first_name')!.hasError('required')">
             First name is required.
           </div>
-          <div class="input-group__error" *ngIf="serverErrors?.first_name">
-            {{ serverErrors.first_name }}
+          <div class="input-group__error" *ngIf="serverErrors && serverErrors['first_name']">
+            {{ serverErrors['first_name'] }}
           </div>
         </div>
-        <div class="input-group" [class.input-group--error]="form.get('last_name')!.touched && form.get('last_name')!.hasError('required') || serverErrors?.last_name">
+        <div class="input-group" [class.input-group--error]="form.get('last_name')!.touched && form.get('last_name')!.hasError('required') || serverErrors && serverErrors['last_name']">
           <label for="last_name" class="input-group__label">
             Last name<sup>*</sup>
           </label>
@@ -50,11 +50,11 @@
           <div class="input-group__error" *ngIf="form.get('last_name')!.touched && form.get('last_name')!.hasError('required')">
             Last name is required.
           </div>
-          <div class="input-group__error" *ngIf="serverErrors?.last_name">
-            {{ serverErrors.last_name }}
+          <div class="input-group__error" *ngIf="serverErrors && serverErrors['last_name']">
+            {{ serverErrors['last_name'] }}
           </div>
         </div>
-        <div class="input-group" [class.input-group--error]="form.get('email')!.touched && form.get('email')!.hasError('required') || form.get('email')!.touched && form.get('email')!.hasError('emailError') || serverErrors?.email">
+        <div class="input-group" [class.input-group--error]="form.get('email')!.touched && form.get('email')!.hasError('required') || form.get('email')!.touched && form.get('email')!.hasError('emailError') || serverErrors && serverErrors['email']">
           <label for="email" class="input-group__label">
             Email<sup>*</sup>
           </label>
@@ -65,8 +65,8 @@
           <div class="input-group__error" *ngIf="form.get('email')!.touched && form.get('email')!.hasError('emailError')">
             Email is not valid.
           </div>
-          <div class="input-group__error" *ngIf="serverErrors?.email">
-            {{ serverErrors.email }}
+          <div class="input-group__error" *ngIf="serverErrors && serverErrors['email']">
+            {{ serverErrors['email'] }}
           </div>
         </div>
         <div class="input-group" [class.input-group--error]="form.get('user_type')!.touched && form.get('user_type')!.hasError('required')">
@@ -82,7 +82,7 @@
           </div>
         </div>
         <div class="input-group" [class.input-group--error]="form.get('password')!.touched && form.get('password')!.hasError('required') ||
-        form.get('password')!.touched && form.get('password')!.hasError('passwordError') || serverErrors?.password">
+        form.get('password')!.touched && form.get('password')!.hasError('passwordError') || serverErrors && serverErrors['password']">
           <label for="password" class="input-group__label">
             Password<sup>*</sup>
           </label>
@@ -93,8 +93,8 @@
           <div class="input-group__error" *ngIf="form.get('password')!.touched && form.get('password')!.hasError('passwordError')">
             Password must have minimum length 8 and have at least one number and one letter.
           </div>
-          <div class="input-group__error" *ngIf="serverErrors?.password">
-            {{ serverErrors.password }}
+          <div class="input-group__error" *ngIf="serverErrors && serverErrors['password']">
+            {{ serverErrors['password'] }}
           </div>
         </div>
         <div class="input-group" [class.input-group--error]="form.get('repeat_password')!.touched && form.get('repeat_password')!.hasError('required') ||
