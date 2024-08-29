@@ -48,10 +48,10 @@ export class UserListComponent implements OnInit {
     this.userService.updateUser(user).subscribe({
       next: () => {
         this.successMessage('User updated');
-        const findUser = this.users.find((u: User) => 
-          (u.username === user.old_username || u.old_username === user.old_username))!;
-        const index = this.users.indexOf(findUser);
-        this.users[index] = { ...user };
+        const userIndex = this.users.findIndex(
+          (u: User) => u.username === user.old_username || u.old_username === user.old_username
+        );        
+        this.users[userIndex] = { ...user };
       },
       error: (err) => {
         this.serverErrors = err.errors;

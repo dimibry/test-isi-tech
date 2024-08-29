@@ -34,7 +34,6 @@ export class UserViewComponent implements OnChanges {
   constructor(private fb: FormBuilder) {}
 
   ngOnChanges(change: SimpleChanges) {
-
     if (change['users'] && change['users'].currentValue) {
       this.form = this.fb.group({
         username: [null, [Validators.required, uniqueUsernameValidator(this.users)]],
@@ -50,11 +49,23 @@ export class UserViewComponent implements OnChanges {
     }
 
     if (change['activeUser'] && change['activeUser'].currentValue ) {
-      const userCopy = {...this.activeUser, repeat_password: this.activeUser!.password};
-      delete userCopy.old_username
+      const userCopy = { 
+        ...this.activeUser, 
+        repeat_password: this.activeUser?.password 
+      };
+      
+      if (userCopy.old_username) {
+        delete userCopy.old_username;
+      }
+      
       this.form.setValue(userCopy);
-      const filteredUsers = [...this.users.filter((u) => u.username !== this.activeUser?.username)];
-      this.form.get('username')?.setValidators([Validators.required, uniqueUsernameValidator(filteredUsers)])
+      const filteredUsers = this.users.filter((u) => u.username !== this.activeUser?.username);
+      
+      this.form.get('username')?.setValidators([
+        Validators.required, 
+        uniqueUsernameValidator(filteredUsers)
+      ]);
+      
       this.form.get('username')?.updateValueAndValidity();
     }
 
